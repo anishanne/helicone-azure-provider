@@ -37,7 +37,6 @@ const { text } = await generateText({
 });
 ```
 
-
 If you need a customized setup, you can import `createHelicone` from `helicone-azure` and create a provider instance with your settings:
 
 ```ts
@@ -101,7 +100,6 @@ const { text } = await generateText({
   prompt: 'Write a vegetarian lasagna recipe for 4 people.',
 });
 ```
-
 
 ### Chat Models
 

@@ -2,7 +2,7 @@ import {
   EmbeddingModelV1Embedding,
   LanguageModelV1Prompt,
 } from '@ai-sdk/provider';
-import { JsonTestServer } from '@ai-sdk/provider-utils/test';
+import { JsonTestServer } from '../tools/provider-utils/src/test';
 import { createHelicone } from './helicone-azure-openai-provider';
 
 const TEST_PROMPT: LanguageModelV1Prompt = [
@@ -88,8 +88,8 @@ describe('chat', () => {
 
       expect(requestHeaders).toStrictEqual({
         'api-key': 'test-api-key-1',
-		'Helicone-Auth': 'Bearer test-api-key-2',
-		'Helicone-OpenAI-Api-Base': 'https://test-resource.openai.azure.com',
+        'helicone-auth': 'Bearer test-api-key-2',
+        'helicone-openai-api-base': 'https://test-resource.openai.azure.com',
         'content-type': 'application/json',
         'custom-provider-header': 'provider-header-value',
         'custom-request-header': 'request-header-value',
@@ -186,8 +186,8 @@ describe('completion', () => {
 
       expect(requestHeaders).toStrictEqual({
         'api-key': 'test-api-key-1',
-		'Helicone-Auth': 'Bearer test-api-key-2',
-		'Helicone-OpenAI-Api-Base': 'https://test-resource.openai.azure.com',
+        'helicone-auth': 'Bearer test-api-key-2',
+        'helicone-openai-api-base': 'https://test-resource.openai.azure.com',
         'content-type': 'application/json',
         'custom-provider-header': 'provider-header-value',
         'custom-request-header': 'request-header-value',
@@ -205,7 +205,7 @@ describe('embedding', () => {
 
   describe('doEmbed', () => {
     const server = new JsonTestServer(
-      'https://test-resource.openai.azure.com/openai/deployments/my-embedding/embeddings',
+      'https://oai.helicone.ai/openai/deployments/my-embedding/embeddings?',
     );
 
     const model = provider.embedding('my-embedding');
@@ -237,6 +237,8 @@ describe('embedding', () => {
       });
 
       const searchParams = await server.getRequestUrlSearchParams();
+	  console.log("TEST")
+	  console.log(searchParams.get('api-version'))
       expect(searchParams.get('api-version')).toStrictEqual(
         '2024-05-01-preview',
       );
@@ -265,8 +267,8 @@ describe('embedding', () => {
 
       expect(requestHeaders).toStrictEqual({
         'api-key': 'test-api-key-1',
-		'Helicone-Auth': 'Bearer test-api-key-2',
-		'Helicone-OpenAI-Api-Base': 'https://test-resource.openai.azure.com',
+        'helicone-auth': 'Bearer test-api-key-2',
+        'helicone-openai-api-base': 'https://test-resource.openai.azure.com',
         'content-type': 'application/json',
         'custom-provider-header': 'provider-header-value',
         'custom-request-header': 'request-header-value',
