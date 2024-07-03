@@ -1,10 +1,10 @@
 module.exports = {
-  root: true,
-  // This tells ESLint to load the config from the package `eslint-config-vercel-ai`
-  extends: ["vercel-ai"],
-  settings: {
-    next: {
-      rootDir: ["apps/*/"],
-    },
-  },
-};
+	root: true,
+	extends: ["prettier", "plugin:@typescript-eslint/recommended"],
+  
+	parserOptions: {
+	  sourceType: "module",
+	  ecmaVersion: 2022,
+	},
+  };
+  
