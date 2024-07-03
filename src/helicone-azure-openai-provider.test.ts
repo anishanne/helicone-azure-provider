@@ -2,7 +2,7 @@ import {
   EmbeddingModelV1Embedding,
   LanguageModelV1Prompt,
 } from '@ai-sdk/provider';
-import { JsonTestServer } from '../tools/provider-utils/src/test';
+import { JsonTestServer } from '@ai-sdk/provider-utils/test';
 import { createHelicone } from './helicone-azure-openai-provider';
 
 const TEST_PROMPT: LanguageModelV1Prompt = [
@@ -57,7 +57,7 @@ describe('chat', () => {
         prompt: TEST_PROMPT,
       });
 
-      const searchParams = await server.getRequestUrlSearchParams();
+      const searchParams = new URL(server.request!.url).searchParams; //await server.getRequestUrlSearchParams();
       expect(searchParams.get('api-version')).toStrictEqual(
         '2024-05-01-preview',
       );
@@ -155,7 +155,7 @@ describe('completion', () => {
         prompt: TEST_PROMPT,
       });
 
-      const searchParams = await server.getRequestUrlSearchParams();
+      const searchParams = new URL(server.request!.url).searchParams; //await server.getRequestUrlSearchParams();
       expect(searchParams.get('api-version')).toStrictEqual(
         '2024-05-01-preview',
       );
@@ -236,7 +236,7 @@ describe('embedding', () => {
         values: testValues,
       });
 
-      const searchParams = await server.getRequestUrlSearchParams();
+      const searchParams = new URL(server.request!.url).searchParams; //await server.getRequestUrlSearchParams();
 	  console.log("TEST")
 	  console.log(searchParams.get('api-version'))
       expect(searchParams.get('api-version')).toStrictEqual(

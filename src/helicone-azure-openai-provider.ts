@@ -6,7 +6,7 @@ import {
   OpenAICompletionSettings,
   OpenAICompletionLanguageModel,
 } from '@ai-sdk/openai/internal';
-import { loadApiKey, loadSetting } from '../tools/provider-utils/src';
+import { loadApiKey, loadSetting } from '@ai-sdk/provider-utils';
 
 export interface HeliconeAzureOpenAIProvider {
   (
