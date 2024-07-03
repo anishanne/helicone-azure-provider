@@ -205,7 +205,7 @@ describe('embedding', () => {
 
   describe('doEmbed', () => {
     const server = new JsonTestServer(
-      'https://oai.helicone.ai/openai/deployments/my-embedding/embeddings?',
+      'https://oai.helicone.ai/openai/deployments/my-embedding/embeddings',
     );
 
     const model = provider.embedding('my-embedding');
