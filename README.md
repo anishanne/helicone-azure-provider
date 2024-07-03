@@ -90,25 +90,10 @@ const { text } = await generateText({
 });
 ```
 
-OpenAI language models can also be used in the `streamText`, `generateObject`, `streamObject`, and `streamUI` functions
-(see [AI SDK Core](/docs/ai-sdk-core) and [AI SDK RSC](/docs/ai-sdk-rsc)).
-
-<Note>
-  Azure OpenAI sends larger chunks than OpenAI. This can lead to the perception
-  that the response is slower. See [Troubleshooting: Azure OpenAI Slow To
-  Stream](/docs/troubleshooting/common-issues/azure-stream-slow)
-</Note>
 
 ### Chat Models
 
-<Note>
-  The URL for calling Azure chat models will be constructed as follows:
-  `https://RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/chat/completions?api-version=2024-05-01-preview`
-
-  This will be proxied through the Helicone API for monitoring, logging, and rate limiting.
-</Note>
-
-Helicone Azure OpenAI chat models support also some model specific settings that are not part of the [standard call settings](/docs/ai-sdk-core/settings).
+Helicone Azure OpenAI chat models support also some model specific settings that are not part of the [standard call settings](https://sdk.vercel.ai/docs/ai-sdk-core/settings).
 You can pass them as an options argument:
 
 ```ts
@@ -173,7 +158,7 @@ Currently only `gpt-35-turbo-instruct` is supported.
 const model = helicone.completion('your-gpt-35-turbo-instruct-deployment');
 ```
 
-OpenAI completion models support also some model specific settings that are not part of the [standard call settings](/docs/ai-sdk-core/settings).
+OpenAI completion models support also some model specific settings that are not part of the [standard call settings](https://sdk.vercel.ai/docs/ai-sdk-core/settings).
 You can pass them as an options argument:
 
 ```ts

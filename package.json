@@ -1,0 +1,36 @@
+{
+	"private": true,
+	"scripts": {
+	  "build": "pnpm --filter helicone-azure-provider run build",
+	  "clean": "pnpm --filter helicone-azure-provider run clean",
+	  "dev": "pnpm --filter helicone-azure-provider run dev",
+	  "lint": "pnpm --filter helicone-azure-provider run lint",
+	  "type-check": "pnpm --filter helicone-azure-provider run type-check",
+	  "prettier-check": "pnpm --filter helicone-azure-provider run prettier",
+	  "test": "pnpm --filter helicone-azure-provider run test"
+	},
+	"devDependencies": {
+	  "@typescript-eslint/eslint-plugin": "^7.9.0",
+	  "@typescript-eslint/parser": "^7.9.0",
+	  "eslint": "^8.57.0",
+	  "eslint-config-prettier": "^9.1.0",
+	  "eslint-plugin-import": "^2.29.1",
+	  "eslint-plugin-prettier": "^5.1.3",
+	  "eslint-plugin-simple-import-sort": "^12.1.0",
+	  "eslint-plugin-sort": "^3.0.2",
+	  "eslint-plugin-unicorn": "^52.0.0",
+	  "eslint-plugin-unused-imports": "^3.2.0",
+	  "prettier": "^3.2.5",
+	  "vite-tsconfig-paths": "^4.3.2",
+	  "vitest": "^1.6.0"
+	},
+	"homepage": "https://github.com/anishanne/helicone-azure-provider",
+	"repository": {
+	  "type": "git",
+	  "url": "git+https://github.com/anishanne/helicone-azure-provider.git"
+	},
+	"bugs": {
+	  "url": "https://github.com/anishanne/helicone-azure-provider/issues"
+	},
+	"license": "Apache License"
+  }
