@@ -1,4 +1,4 @@
-# Helicone Azure Provider
+# Vercel AI SDK - Helicone Azure OpenAI Provider
 
 Vercel AI Provider for running Azure OpenAI Models with Helicone Monitoring. Based on the [@ai-sdk/azure](https://www.npmjs.com/package/@ai-sdk/azure) package.
 
@@ -6,25 +6,37 @@ Vercel AI Provider for running Azure OpenAI Models with Helicone Monitoring. Bas
 
 The Helicone Azure OpenAI provider is available in the `helicone-azure` module. You can install it with
 
-<Tabs items={['pnpm', 'npm', 'yarn']}>
-  <Tab>
-    <Snippet text="pnpm install helicone-azure" dark />
-  </Tab>
-  <Tab>
-    <Snippet text="npm install helicone-azure" dark />
-  </Tab>
-  <Tab>
-    <Snippet text="yarn add helicone-azure" dark />
-  </Tab>
-</Tabs>
+```bash
+# PNPM
+pnpm install helicone-azure
+
+# NPM
+npm install helicone-azure
+
+# Yarn
+yarn add helicone-azure
+```
 
 ## Provider Instance
 
 You can import the default provider instance `helicone` from `helicone-azure`:
 
 ```ts
-import { azuheliconere } from 'helicone-azure';
+import { helicone } from 'helicone-azure';
 ```
+
+## Example
+
+```ts
+import { helicone } from '@ai-sdk/helicone-azure';
+import { generateText } from 'ai';
+
+const { text } = await generateText({
+  model: helicone('gpt-4o'), // your deployment name
+  prompt: 'Write a vegetarian lasagna recipe for 4 people.',
+});
+```
+
 
 If you need a customized setup, you can import `createHelicone` from `helicone-azure` and create a provider instance with your settings:
 
