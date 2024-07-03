@@ -15,18 +15,18 @@ npm i @ai-sdk/helicone-azure
 You can import the default provider instance `helicone` from `@ai-sdk/helicone-azure`:
 
 ```ts
-import { helicone } from '@ai-sdk/helicone-azure';
+import { helicone } from "@ai-sdk/helicone-azure";
 ```
 
 ## Example
 
 ```ts
-import { helicone } from '@ai-sdk/helicone-azure';
-import { generateText } from 'ai';
+import { helicone } from "@ai-sdk/helicone-azure";
+import { generateText } from "ai";
 
 const { text } = await generateText({
-  model: helicone('gpt-4o'), // your deployment name
-  prompt: 'Write a vegetarian lasagna recipe for 4 people.',
+  model: helicone("gpt-4o"), // your deployment name
+  prompt: "Write a vegetarian lasagna recipe for 4 people.",
 });
 ```
 

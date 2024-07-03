@@ -1,35 +1,9 @@
 {
+	"extends": "./node_modules/@vercel/ai-tsconfig/react-library.json",
 	"compilerOptions": {
-	  "lib": ["dom", "dom.iterable", "esnext"],
-	  "allowJs": true,
-	  "skipLibCheck": true,
-	  "strict": true,
-	  "forceConsistentCasingInFileNames": true,
-	  "noEmit": true,
-	  "incremental": true,
-	  "esModuleInterop": true,
-	  "module": "esnext",
-	  "moduleResolution": "node",
-	  "resolveJsonModule": true,
-	  "isolatedModules": true,
-	  "jsx": "preserve",
-	  "baseUrl": ".",
-	  "paths": {
-		"@/*": ["./*"]
-	  },
-	  "plugins": [
-		{
-		  "name": "next"
-		}
-	  ],
-	  "strictNullChecks": true
+	  "target": "ES2018",
+	  "stripInternal": true
 	},
-	"include": [
-	  "next-env.d.ts",
-	  "next-auth.d.ts",
-	  "**/*.ts",
-	  "**/*.tsx",
-	  ".next/types/**/*.ts"
-	],
-	"exclude": ["node_modules", "dist", "build"]
+	"include": ["."],
+	"exclude": ["dist", "build", "node_modules"]
   }

@@ -5,8 +5,8 @@ import {
   OpenAIEmbeddingSettings,
   OpenAICompletionSettings,
   OpenAICompletionLanguageModel,
-} from '@ai-sdk/openai/internal';
-import { loadApiKey, loadSetting } from '@ai-sdk/provider-utils';
+} from "@ai-sdk/openai/internal";
+import { loadApiKey, loadSetting } from "@ai-sdk/provider-utils";
 
 export interface HeliconeAzureOpenAIProvider {
   (
@@ -111,17 +111,17 @@ export function createHelicone(
 ): HeliconeAzureOpenAIProvider {
   const getHeaders = (modelOverride?: string) => () => {
     return {
-      'api-key': loadApiKey({
+      "api-key": loadApiKey({
         apiKey: options.azureApiKey,
-        environmentVariableName: 'AZURE_API_KEY',
-        description: 'Azure OpenAI',
+        environmentVariableName: "AZURE_API_KEY",
+        description: "Azure OpenAI",
       }),
-      ...(modelOverride ? { 'Helicone-Model-Override': modelOverride } : {}),
-      'Helicone-OpenAI-Api-Base': `https://${getResourceName()}.openai.azure.com`,
-      'Helicone-Auth': `Bearer ${loadApiKey({
+      ...(modelOverride ? { "Helicone-Model-Override": modelOverride } : {}),
+      "Helicone-OpenAI-Api-Base": `https://${getResourceName()}.openai.azure.com`,
+      "Helicone-Auth": `Bearer ${loadApiKey({
         apiKey: options.heliconeApiKey,
-        environmentVariableName: 'HELICONE_API_KEY',
-        description: 'Helicone',
+        environmentVariableName: "HELICONE_API_KEY",
+        description: "Helicone",
       })}`,
       ...options.headers,
     };
@@ -130,9 +130,9 @@ export function createHelicone(
   const getResourceName = () =>
     loadSetting({
       settingValue: options.resourceName,
-      settingName: 'resourceName',
-      environmentVariableName: 'AZURE_RESOURCE_NAME',
-      description: 'Azure OpenAI resource name',
+      settingName: "resourceName",
+      environmentVariableName: "AZURE_RESOURCE_NAME",
+      description: "Azure OpenAI resource name",
     });
 
   const url = ({ path, modelId }: { path: string; modelId: string }) =>
@@ -143,10 +143,10 @@ export function createHelicone(
     settings: HeliconeAzureOpenAIChatSettings = {},
   ) =>
     new OpenAIChatLanguageModel(deploymentName, settings, {
-      provider: 'helicone-azure.chat',
+      provider: "helicone-azure.chat",
       url,
       headers: getHeaders(settings.modelOverride),
-      compatibility: 'compatible',
+      compatibility: "compatible",
       fetch: options.fetch,
     });
 
@@ -155,9 +155,9 @@ export function createHelicone(
     settings: HeliconeAzureOpenAICompletionSettings = {},
   ) =>
     new OpenAICompletionLanguageModel(modelId, settings, {
-      provider: 'helicone-azure.completion',
+      provider: "helicone-azure.completion",
       url,
-      compatibility: 'compatible',
+      compatibility: "compatible",
       headers: getHeaders(settings.modelOverride),
       fetch: options.fetch,
     });
@@ -167,7 +167,7 @@ export function createHelicone(
     settings: HeliconeAzureOpenAIEmbeddingSettings = {},
   ) =>
     new OpenAIEmbeddingModel(modelId, settings, {
-      provider: 'helicone-azure.embeddings',
+      provider: "helicone-azure.embeddings",
       headers: getHeaders(settings.modelOverride),
       url,
       fetch: options.fetch,
@@ -181,7 +181,7 @@ export function createHelicone(
   ) {
     if (new.target) {
       throw new Error(
-        'The Helicone Azure OpenAI model function cannot be called with the new keyword.',
+        "The Helicone Azure OpenAI model function cannot be called with the new keyword.",
       );
     }
 

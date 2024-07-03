@@ -22,30 +22,30 @@ yarn add helicone-azure
 You can import the default provider instance `helicone` from `helicone-azure`:
 
 ```ts
-import { helicone } from 'helicone-azure';
+import { helicone } from "helicone-azure";
 ```
 
 ## Example
 
 ```ts
-import { helicone } from '@ai-sdk/helicone-azure';
-import { generateText } from 'ai';
+import { helicone } from "@ai-sdk/helicone-azure";
+import { generateText } from "ai";
 
 const { text } = await generateText({
-  model: helicone('gpt-4o'), // your deployment name
-  prompt: 'Write a vegetarian lasagna recipe for 4 people.',
+  model: helicone("gpt-4o"), // your deployment name
+  prompt: "Write a vegetarian lasagna recipe for 4 people.",
 });
 ```
 
 If you need a customized setup, you can import `createHelicone` from `helicone-azure` and create a provider instance with your settings:
 
 ```ts
-import { createHelicone } from 'helicone-azure';
+import { createHelicone } from "helicone-azure";
 
 const helicone = createHelicone({
-  resourceName: 'your-resource-name', // Azure resource name
-  azureApiKey: 'your-azure-api-key',
-  heliconeApiKey: 'your-helicone-api-key',
+  resourceName: "your-resource-name", // Azure resource name
+  azureApiKey: "your-azure-api-key",
+  heliconeApiKey: "your-helicone-api-key",
 });
 ```
 
@@ -82,7 +82,7 @@ You can use the following optional settings to customize the OpenAI provider ins
 The Helicone Azure OpenAI provider instance is a function that you can invoke to create a language model:
 
 ```ts
-const model = helicone('your-deployment-name');
+const model = helicone("your-deployment-name");
 ```
 
 You need to pass your deployment name as the first argument.
@@ -92,12 +92,12 @@ You need to pass your deployment name as the first argument.
 You can use OpenAI language models to generate text with the `generateText` function:
 
 ```ts
-import { helicone } from 'helicone-azure';
-import { generateText } from 'ai';
+import { helicone } from "helicone-azure";
+import { generateText } from "ai";
 
 const { text } = await generateText({
-  model: helicone('your-deployment-name'),
-  prompt: 'Write a vegetarian lasagna recipe for 4 people.',
+  model: helicone("your-deployment-name"),
+  prompt: "Write a vegetarian lasagna recipe for 4 people.",
 });
 ```
 
@@ -107,13 +107,13 @@ Helicone Azure OpenAI chat models support also some model specific settings that
 You can pass them as an options argument:
 
 ```ts
-const model = helicone('your-deployment-name', {
+const model = helicone("your-deployment-name", {
   logitBias: {
     // optional likelihood for specific tokens
-    '50256': -100,
+    "50256": -100,
   },
-  user: 'test-user', // optional unique user identifier
-  modelOverride: 'openai-chat-model-name', // optional model override
+  user: "test-user", // optional unique user identifier
+  modelOverride: "openai-chat-model-name", // optional model override
 });
 ```
 
@@ -165,22 +165,22 @@ The first argument is the model id.
 Currently only `gpt-35-turbo-instruct` is supported.
 
 ```ts
-const model = helicone.completion('your-gpt-35-turbo-instruct-deployment');
+const model = helicone.completion("your-gpt-35-turbo-instruct-deployment");
 ```
 
 OpenAI completion models support also some model specific settings that are not part of the [standard call settings](https://sdk.vercel.ai/docs/ai-sdk-core/settings).
 You can pass them as an options argument:
 
 ```ts
-const model = helicone.completion('your-gpt-35-turbo-instruct-deployment', {
+const model = helicone.completion("your-gpt-35-turbo-instruct-deployment", {
   echo: true, // optional, echo the prompt in addition to the completion
   logitBias: {
     // optional likelihood for specific tokens
-    '50256': -100,
+    "50256": -100,
   },
-  suffix: 'some text', // optional suffix that comes after a completion of inserted text
-  user: 'test-user', // optional unique user identifier
-  modelOverride: 'gpt-3.5-turbo-instruct', // optional model override
+  suffix: "some text", // optional suffix that comes after a completion of inserted text
+  user: "test-user", // optional unique user identifier
+  modelOverride: "gpt-3.5-turbo-instruct", // optional model override
 });
 ```
 
@@ -236,7 +236,7 @@ You can create models that call the Azure OpenAI embeddings API
 using the `.embedding()` factory method.
 
 ```ts
-const model = helicone.embedding('your-embedding-deployment');
+const model = helicone.embedding("your-embedding-deployment");
 ```
 
 Azure OpenAI embedding models support several additional settings.
